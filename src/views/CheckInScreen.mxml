@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Check-In Screen">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VGroup>
+		
+		<fx:Script>
+			<![CDATA[
+				import model.ModelLocator;
+				
+				[Bindable] public var _model:ModelLocator=ModelLocator.getInstance();
+				
+				private function updateModel():void
+				{
+					_model.nText = nText.text;
+					_model.iText = iText.text;
+					
+				}
+			]]>
+		</fx:Script>				
+		
+		<s:HGroup>
+			<s:Form id="myForm" width="350" height="325">
+				<s:Label fontSize="16" text="Venue"/>
+				<s:FormItem label="Name:">
+					<s:Label id="nVenue" width="100%" text="{_model.nVenue}"/>
+				</s:FormItem>
+				<s:FormItem label="Address:">
+					<s:Label id="aVenue" width="100%" text="{_model.aVenue}"/>
+				</s:FormItem>
+				<s:FormItem label="City:">
+					<s:Label id="cVenue" width="100%" text="{_model.cVenue}"/>
+				</s:FormItem>
+				<s:FormItem label="State:">
+					<s:Label id="sVenue" width="100%" text="{_model.sVenue}"/>
+				</s:FormItem>
+				<s:FormItem label="ZipCode:">
+					<s:Label id="zVenue" width="100%" text="{_model.zVenue}"/>
+				</s:FormItem>
+				<s:FormItem label="Phone:">
+					<s:Label id="pVenue" width="100%" text="{_model.pVenue}"/>
+				</s:FormItem>
+				<s:FormItem>
+					
+				</s:FormItem>						
+			</s:Form> 
+	
+			<s:Form id="myTechForm" width="350" height="325">
+				<s:Label fontSize="16" text="Tech"/>
+				<s:FormItem label="Name:">
+					<s:TextInput id="nText" width="100%"/>
+				</s:FormItem>
+				<s:FormItem label="ID:">
+					<s:TextInput id="iText" width="100%"/>
+				</s:FormItem>			
+			</s:Form> 
+			
+		</s:HGroup>
+		
+		<s:HGroup>
+			<s:Button label="Previous" click="navigator.popToFirstView()" width="120"/>
+			<s:Button label="Check In" width="120" click="navigator.pushView(CheckInComplete);updateModel();"/>
+			<s:Button label="Check Out" width="120" click="navigator.pushView(CheckOutComplete);"/>
+		</s:HGroup>			
+		
+	</s:VGroup>
+</s:View>

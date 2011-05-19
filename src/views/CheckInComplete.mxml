@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="CheckInComplete">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import model.ModelLocator;
+			
+			[Bindable] public var _model:ModelLocator=ModelLocator.getInstance();
+			
+		]]>
+	</fx:Script>	
+	<s:VGroup>
+		<s:Button label="Home" click="navigator.popToFirstView()" width="120"/>
+		<s:Form id="myForm" width="350" height="325">
+			<s:Label fontSize="16" text="Check In Complete"/>
+			<s:FormItem label="Venue Name:">
+				<s:Label id="nVenue" width="100%" text="{_model.nVenue}"/>
+			</s:FormItem>
+			<s:FormItem label="Name:">
+				<s:Label id="nText" width="100%" text="{_model.nText}"/>
+			</s:FormItem>	
+			<s:FormItem label="Id:">
+				<s:Label id="iText" width="100%" text="{_model.iText}"/>
+			</s:FormItem>			
+		</s:Form>
+	</s:VGroup>
+</s:View>
